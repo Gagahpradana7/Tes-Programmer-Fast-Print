@@ -17,10 +17,6 @@ const fetchAndSaveData = async (req, res) => {
     formData.append("username", username);
     formData.append("password", password);
 
-    console.log("Username:", username);
-    console.log("Raw password:", rawPassword);
-    console.log("MD5 password:", password);
-
     const response = await axios.post(
       "https://recruitment.fastprint.co.id/tes/api_tes_programmer",
       formData,

@@ -1,0 +1,72 @@
+<div class="page-header">
+  <h2>Tambah Produk Baru</h2>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <form action="/produk/add" method="POST">
+          <div class="mb-3">
+            <label for="nama_produk" class="form-label">Nama Produk</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nama_produk"
+              name="nama_produk"
+              
+            />
+          </div>
+          <div class="mb-3">
+            <label for="harga" class="form-label">Harga</label>
+            <input
+              type="number"
+              class="form-control"
+              id="harga"
+              name="harga"
+              
+            />
+          </div>
+          <div class="mb-3">
+            <label for="kategori_id" class="form-label">Kategori</label>
+            <select
+              class="form-select"
+              id="kategori_id"
+              name="kategori_id"
+              
+            >
+              <option disabled selected="pilih kategori">Pilih kategori</option>
+              <% kategori.forEach(kat => { %>
+                <option value="<%= kat.id %>" 
+                        <%= kat.kategori_id === kat.id ? 'selected' : '' %>>
+                    <%= kat.nama_kategori %>
+                </option>
+            <% }) %>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="status_id" class="form-label">Status</label>
+            <select
+              class="form-select"
+              id="status_id"
+              name="status_id"
+              
+            >
+              <option disabled selected="pilih kategori">Pilih Status</option>
+              <% status.forEach(stat => { %>
+                  <option value="<%= stat.id %>" 
+                          <%= stat.status_id === stat.id ? 'selected' : '' %>>
+                      <%= stat.nama_status %>
+                  </option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-primary">Tambah</button>
+            <a href="/" class="btn btn-secondary">Batal</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
